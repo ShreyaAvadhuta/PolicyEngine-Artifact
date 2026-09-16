@@ -234,7 +234,7 @@ public class CellularFragment extends Fragment {
         if (info instanceof CellInfoLte) {
             CellIdentityLte id = ((CellInfoLte) info).getCellIdentity();
             int mcc = mcc(id), mnc = mnc(id);
-            if (valid(mcc) && valid(id.getCi()))
+            if (valid(id.getCi()))
                 return new CellTower("LTE", mcc, mnc, id.getTac(), id.getCi(),
                         ((CellInfoLte) info).getCellSignalStrength().getDbm());
         } else if (info instanceof CellInfoWcdma) {
