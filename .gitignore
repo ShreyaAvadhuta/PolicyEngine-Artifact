@@ -1,2 +1,7 @@
 ﻿*.qcow2
 *.img
+
+# Android build artifacts
+**/build/
+**/.gradle/
+**/local.properties

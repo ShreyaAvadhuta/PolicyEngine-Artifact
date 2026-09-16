@@ -11,6 +11,7 @@ Badges requested: Available, Functional, Reproduced.
 | PolicyEngine-ReLSPosed-Module/ | Rooted PolicyEngine (Kotlin, ReLSPosed module) |
 | Rootless-PolicyEngine/ | Rootless PolicyEngine (LSPatch) |
 | Rooted-Emulator-AVD/ | Configuration for a pre-configured rooted Android 16 AVD |
+| SampleLocationStalk/ | Sample app retrieving location from all four geolocation channels |
 | Analysis-Scripts/ | Dynamic per-app testing script |
 | docs/ | Setup, experiment, and release documentation |
 
@@ -19,7 +20,8 @@ Badges requested: Available, Functional, Reproduced.
 1. PolicyEngine (rooted). A ReLSPosed module written in Kotlin. Installable on a rooted Android device and managed through ReLSPosed.  
 2. Rootless PolicyEngine. The same defensive logic deployed through LSPatch, requiring no root. As reported in Table 7 (Appendix F), GPS spoofing is supported while system-server hooks are not, meaning Wi-Fi and cellular spoofing are unavailable in this configuration. The paper separately reports that the LSPatch build evaluated crashes on Android 16 (API 36\) due to an ART runtime conflict (Section 9.1). This artifact was verified working with LSPatch v1.2 (487) and Shizuku v13.5, which do not exhibit this crash on Android 16, an improvement over what is reported in the paper.  
 3. A pre-configured rooted Android 16 (API 36\) AVD with Magisk, ReLSPosed, and PolicyEngine already installed and enabled. The AVD configuration is included in this repository; the disk image is hosted separately (see docs/SETUP.md) because of GitHub's file size limits.  
-4. A dynamic analysis script used to evaluate individual stalkerware apps, as described in the paper.
+4. SampleLocationStalk. An Android app showcasing a sample and harmless prototype of a permission-based stalkerware, that can be used to evaluate PolicyEngine.
+5. A dynamic analysis script used to evaluate individual stalkerware apps, as described in the paper.
 
 ## Claims, components, and experiments
 
