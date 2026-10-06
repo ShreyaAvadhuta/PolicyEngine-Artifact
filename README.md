@@ -6,7 +6,7 @@ Badges requested: Available, Functional, Reproduced.
 
 Permanent archive (Available badge): this repository is archived on Zenodo. The DOI is listed in the HotCRP submission and will be added to this README in the final packaged version.
 
-## Start here: reviewer quick start
+## Start here:
 
 ### Supported platforms and versions
 
