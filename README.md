@@ -26,7 +26,7 @@ Permanent archive (Available badge): this repository is archived on Zenodo. The 
 | :---- | :---- |
 | Hardware | x86_64 host with hardware virtualization (Intel VT-x or AMD-V, or KVM on Linux). No special hardware. |
 | Memory | Enough host RAM to run the Android emulator. The AVD's own RAM setting is `hw.ramSize` in `Rooted-Emulator-AVD/Rooted_Pixel_8_API_36.avd/config.ini`. |
-| Disk | The disk image is about 2.7 GB (2,871,197,696 bytes). Allow at least 6 GB free for the AVD folder after first boot. |
+| Disk | The disk image is about 2.7 GB. Allow at least 6 GB free for the AVD folder after first boot. |
 | GPU | Not required. |
 | GUI | Required. The emulator window and the sample app's tabs are used. |
 | Network | Needed to download the disk image and build dependencies. At run time, only the sample app's Wi-Fi and Cellular position lookups use the network. |
