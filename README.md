@@ -33,7 +33,7 @@ Permanent archive (Available badge): this repository is archived on Zenodo. The 
 | API keys | None for PolicyEngine. Wi-Fi and cell data are hardcoded, and this artifact ships without a Google Maps key, so trajectories use a built-in route. The sample app's position lookup uses an optional Google Geolocation API key, which can be requested from the authors through HotCRP. |
 | Licensing | No paid or commercial software is needed. PolicyEngine is derived from GPS Setter (https://github.com/jqssun/android-gps-setter, GPL-3.0) and is released under GPL-3.0. See LICENSE. |
 
-### Minimal check (about 10 minutes, no build)
+### Minimal check 
 
 1. Download the disk image from the link in `docs/SETUP.md` and place it at `Rooted-Emulator-AVD/Rooted_Pixel_8_API_36.avd/userdata-qemu.img.qcow2`.
 2. Install the AVD. In PowerShell, from the repository root:
