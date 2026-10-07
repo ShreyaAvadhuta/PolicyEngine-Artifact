@@ -77,30 +77,3 @@ The application should report a spoofed GPS location consistent with the traject
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-er.  
