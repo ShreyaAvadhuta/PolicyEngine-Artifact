@@ -30,7 +30,7 @@ Launch the AVD and verify the environment as described in docs/SETUP.md. PolicyE
 
 Target app: the included SampleLocationStalk app (Google Maps also works).
 
-1. Build the sample app following SampleLocationStalk/README.md (an Android Studio version that supports Android Gradle Plugin 9.0.1 (for example Panda 2, 2025.3.2)), then install it with Android Studio's Run button or with `adb install SampleLocationStalk\app\build\outputs\apk\debug\app-debug.apk`.
+1. Build the sample app following SampleLocationStalk/README.md. It needs JDK 21 and an Android Studio version that supports Android Gradle Plugin 9.0.1 (for example Panda 2, 2025.3.2). Then install it with Android Studio's Run button or with `adb install SampleLocationStalk\app\build\outputs\apk\debug\app-debug.apk`.
 2. Open the app and grant the location and phone permissions.
 3. Add it to PolicyEngine's scope: in the ReLSPosed manager, open Modules, then PolicyEngine, and tick Sample Location Stalk. If the manager has no launcher icon on your AVD (see docs/KNOWN_LIMITATIONS.md), reinstall it from the module folder:
 
