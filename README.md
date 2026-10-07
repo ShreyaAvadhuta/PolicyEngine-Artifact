@@ -52,7 +52,7 @@ exit
 
 ### Full evaluation (about 30 minutes, plus the 2.7 GB download)
 
-- **E1:** copy an APK into `Analysis-Scripts\sample_apks`, then from the `Analysis-Scripts` folder run `.\artifact_automated_script_testing.ps1`. Details: Analysis-Scripts/README.md.
+- **E1:** create Analysis-Scripts\sample_apks and copy an APK into it, then from the `Analysis-Scripts` folder run `.\artifact_automated_script_testing.ps1`. Details: Analysis-Scripts/README.md.
 - **E2a:** install the sample app, add it to PolicyEngine's scope, and check its tabs. Steps: docs/EXPERIMENTS.md.
 - **E3:** build, patch, and install as described in Rootless-PolicyEngine/README.md.
 
