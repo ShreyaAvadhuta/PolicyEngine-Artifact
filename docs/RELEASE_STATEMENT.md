@@ -23,5 +23,4 @@ The real-world stalkerware applications referenced in the paper's corpus are thi
 This artifact ships without a live Google Maps API key. WiGLE and OpenCelliD data are hardcoded in the codebase and require no key under any configuration. See docs/KNOWN\_LIMITATIONS.md.
 
 ## Permanent storage
-
-This GitHub repository serves as the artifact's storage for the submission and evaluation period. Consistent with the requirements of the Available badge, we commit to depositing the final version of this artifact in a permanent, DOI-backed repository, such as Zenodo, by the camera-ready deadline of October 21\.  
+This repository is archived on Zenodo (https://doi.org/10.5281/zenodo.23174949), which includes the AVD disk image.
