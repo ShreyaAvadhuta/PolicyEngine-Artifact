@@ -22,7 +22,7 @@ Rooted-Emulator-AVD/Rooted\_Pixel\_8\_API\_36.avd/userdata-qemu.img.qcow2
 
 ## Step 2: install the AVD
 
-Copy the complete Rooted\_Pixel\_8\_API\_36.avd directory and the Rooted\_Pixel\_8\_API\_36.ini file into your Android AVD directory. On Linux and macOS this is normally \~/.android/avd/. On Windows it is normally %USERPROFILE%\.android\avd\.
+Copy the complete Rooted\_Pixel\_8\_API\_36.avd directory and the Rooted\_Pixel\_8\_API\_36.ini file into your Android AVD directory. On Linux and macOS this is normally \~/.android/avd/. On Windows it is normally `%USERPROFILE%\.android\avd\`.
 
 Open Rooted\_Pixel\_8\_API\_36.ini and check that the path line points to the correct location of the AVD folder on your machine. Update it if it does not.
 
