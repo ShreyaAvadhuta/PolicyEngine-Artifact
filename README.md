@@ -34,7 +34,7 @@ Permanent archive (Available badge): https://doi.org/10.5281/zenodo.23174949. Th
 | API keys | None required. Optional: a Google Geolocation API key for the sample app (see SampleLocationStalk/README.md). Without it, the Wi-Fi and Cellular tabs still show scan data but not a resolved position. |
 | Licensing | No paid or commercial software is needed. PolicyEngine builds on GPS Setter (https://github.com/jqssun/android-gps-setter, GPL-3.0) and is released under GPL-3.0. |
 
-### Minimal check (about 10 minutes)
+### Minimal check (about 10 minutes once the disk image is downloaded)
 
 1. Download, install, and launch the AVD following docs/SETUP.md, Steps 1 to 3. Launch command: `emulator -avd Rooted_Pixel_8_API_36 -no-snapshot-load`
 2. Verify the environment from a second terminal:
