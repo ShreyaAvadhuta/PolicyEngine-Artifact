@@ -10,6 +10,6 @@ Usage:
 
 .\\artifact\_automated\_script\_testing.ps1
 
-By default the script reads APKs from .\\sample\_apks and writes results to .\\pe\_results.txt. Both paths, along with the number of apps to test, can be overridden with the \-apkFolder, \-logFile, and \-maxApps parameters.
+By default the script reads APKs from .\sample_apks and writes results to .\pe_results.txt. Both paths, along with the number of apps to test, can be overridden with the -apkFolder, -logFile, and -maxApps parameters. Create the sample_apks folder in the folder you run the script from, then copy the APK into it.
 
 See ../docs/EXPERIMENTS.md for the full E1 walkthrough and expected output.  
