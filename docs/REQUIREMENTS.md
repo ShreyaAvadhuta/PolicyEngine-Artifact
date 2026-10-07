@@ -12,7 +12,7 @@ E3 (rootless): an Android emulator or physical device. No root is required. This
 
 ## Software
 
-Python and its standard dependencies, the Android SDK, and the Kotlin toolchain.
+PowerShell (the E1 script is a .ps1 file), the Android SDK, and, to build from source, the Kotlin toolchain with JDK 17 for the PolicyEngine modules and JDK 21 for the sample app.
 
 WiGLE and OpenCelliD access-point and cell-tower data are hardcoded in the codebase and require no API key. This artifact ships without a live Google Maps API key, so trajectory generation uses a hardcoded fallback trajectory by default. No third-party API keys or accounts are required to run any experiment.
 
