@@ -107,7 +107,7 @@ The E2a rows below use the SampleLocationStalk as the target app.
 
 Scripts and data behind each claim: C1 uses `Analysis-Scripts/artifact_automated_script_testing.ps1` and writes `pe_results.txt`. C2 uses the AVD (docs/SETUP.md) with SampleLocationStalk/ as the target app, checked through the app's tabs and `adb logcat`. C3 uses the patched app described in `Rootless-PolicyEngine/README.md`.
 
-Badge mapping: Available is supported by this repository and its Zenodo archive, which includes the AVD disk image. Functional is supported by E1, E2a, and E3. Reproduced is supported by E2, run on the sample app as a reduced-scale version of the paper's evaluation.
+Badge mapping: Available is supported by this repository and its Zenodo archive, which includes the AVD disk image. Functional is supported by E1, E2a, and E3. Reproduced is supported by E2, which shows on the sample app that PolicyEngine spoofs the GPS, Wi-Fi, and cellular channels and suppresses GNSS. The paper's comparison against the adversarial app is not distributed (see Known limitations).
 
 Full instructions for each experiment are in docs/EXPERIMENTS.md.
 
