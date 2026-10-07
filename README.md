@@ -17,7 +17,7 @@ Permanent archive (Available badge): https://doi.org/10.5281/zenodo.23174949. Th
 | AVD | `Rooted_Pixel_8_API_36`: Android 16 (API 36), google_apis, x86_64 |
 | On the AVD | Magisk 30.6, ReLSPosed 1.0.2 (7211), PolicyEngine module 0.0.6 |
 | Building PolicyEngine | JDK 17, Android Gradle Plugin 8.3.2, Kotlin 1.9.22 |
-| Building the sample app | JDK 21, Android Gradle Plugin 9.0.1 (Android Studio Panda 2 or newer; see SampleLocationStalk/README.md) |
+| Building the sample app | JDK 21, an Android Studio version that supports Android Gradle Plugin 9.0.1 (for example Panda 2, 2025.3.2); see SampleLocationStalk/README.md) |  
 | Rootless (E3) | LSPatch v1.2 (487), Shizuku v13.5 |
 | Paper results | Google Pixel 8, Android 16 (API 36), Magisk v30.7, ReLSPosed v1.0.2 |
 
