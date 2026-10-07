@@ -135,6 +135,3 @@ Other limitations are in docs/KNOWN_LIMITATIONS.md.
 
 See docs/RELEASE_STATEMENT.md for what is and is not publicly released, docs/REQUIREMENTS.md for hardware and software requirements, and docs/KNOWN_LIMITATIONS.md for limitations specific to the emulated environment.
 
-## Change log
-
-- October 7, 2026: added the reviewer quick start, claim-to-script mapping, limitations, and the Zenodo link. The version first reviewed is tagged `ae-submission-v1` and is in the Zenodo record (version 1.0). 
