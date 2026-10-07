@@ -16,7 +16,7 @@ PowerShell (the E1 script is a .ps1 file), the Android SDK, and, to build from s
 
 WiGLE and OpenCelliD access-point and cell-tower data are hardcoded in the codebase and require no API key. This artifact ships without a live Google Maps API key, so trajectory generation uses a hardcoded fallback trajectory by default. No third-party API keys or accounts are required to run any experiment.
 
-Optional, depending on which experiments are run: Magisk (for example v30.7), ReLSPosed (for example v1.0.2), LSPatch (v1.2 (487) or later), and Shizuku (v13.5 or later).
+Optional, depending on which experiments are run: Magisk (for example v30.7), ReLSPosed (for example v1.0.2), LSPatch (v1.2 (487) ), and Shizuku (v13.5 ).
 
 ## Public infrastructure
 
