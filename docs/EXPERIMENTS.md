@@ -43,7 +43,7 @@ adb install relsposed_manager.apk
 Then open ReLSPosed from the app drawer. If it does not appear there, find its package with `adb shell pm list packages | findstr lsposed` and launch it with `adb shell monkey -p PACKAGE_NAME -c android.intent.category.LAUNCHER 1`, replacing PACKAGE_NAME with the package name the first command printed.
 
 4. If the sample app's tabs still show real values, reboot the AVD.
-5. Check the four tabs against the E2a rows in the README's "Expected outputs and success/failure" table. On the emulator, the Cellular tab lists the seven spoofed towers but does not show a position in Beijing, and the Connected AP line on the Wi-Fi tab may show the emulator's own network (`AndroidWifi`), so judge by the scan list.
+5. Check the four tabs against the E2a rows in the README's "Expected outputs and success/failure" table.
 
 The reported location should differ from the device's real location and fall in the trajectory used in the paper's evaluation: central Beijing (Dongcheng district), with the seven built-in waypoints between 39.9125 and 39.9140 N and between 116.4035 and 116.4065 E. Activity can be observed in PowerShell with:
 
