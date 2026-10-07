@@ -71,7 +71,7 @@ Step 1. Build the PolicyEngine module APK from Rootless-PolicyEngine/app, follow
 
 Step 2. Install LSPatch (manager.apk, v1.2 (487)) and Shizuku (v13.5) on the target device or emulator, and start Shizuku, following Rootless-PolicyEngine/README.md.
 
-Step 3. In the LSPatch manager app, select the sample stalkerware app as the target to patch, select the PolicyEngine module APK built in Step 1 to embed, and start the patch. Once patching finishes, the manager presents two options: "Export APK" or "Install". Tap "Install" to complete installation directly from the manager with no further action needed.
+Step 3. Install the sample app on the device first. In the LSPatch manager app, select the sample stalkerware app as the target to patch, select the PolicyEngine module APK built in Step 1 to embed, and start the patch. Once patching finishes, the manager presents two options: "Export APK" or "Install". Tap "Install" to complete installation directly from the manager with no further action needed.
 
 The application should report a spoofed GPS location consistent with the trajectory described above. Wi-Fi and cellular information should remain unspoofed under this configuration: Wi-Fi requires system-server instrumentation unavailable without root, and cellular support is still in progress. This confirms C3 as scoped in the paper.
 
