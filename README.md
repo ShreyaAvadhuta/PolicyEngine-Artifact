@@ -66,7 +66,7 @@ exit
 | Full evaluation (E1, E2a, E3) | about 30 minutes, plus the 2.7 GB download |
 | Optional E2b (physical rooted device) | about 30 minutes |
 
-### Expected outputs and how to judge success
+### Expected outputs and success scenario
 
 | Check | Success | Failure |
 | :---- | :---- | :---- |
