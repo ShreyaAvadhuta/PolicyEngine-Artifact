@@ -66,7 +66,9 @@ exit
 | Full evaluation (E1, E2a, E3) | about 30 minutes, plus the 2.7 GB download |
 | Optional E2b (physical rooted device) | about 30 minutes |
 
-### Expected outputs and how to judge success or failure
+### Expected outputs and success/failure 
+
+The E2a rows below use the SampleLocationStalk as the target app.
 
 | Check | Success | Failure |
 | :---- | :---- | :---- |
@@ -74,7 +76,7 @@ exit
 | E1 | `pe_results.txt` gains a line for the tested app listing the channels and API calls it used | No line for the app |
 | E2a, sample app GPS tab | Coordinates between 39.9125 and 39.9140 N and 116.4035 and 116.4065 E, and `Mock: no` | Coordinates outside this range |
 | E2a, sample app Wi-Fi tab | Scan list of SWATCH-2.4G, xda2.4G, BLA_Store-2.4G, AP-8818, dftc-s | Only the emulator's own network (`AndroidWifi`): the app is not in PolicyEngine's scope |
-| E2a, sample app Cellular tab | Seven towers listed with signal strengths of -65, -71, -74, -78, -81, -83, and -86 dBm (no Beijing position is shown on the emulator) | Only one tower listed: the app is not in PolicyEngine's scope |
+| E2a, sample app Cellular tab | Seven towers listed with signal strengths of -65, -71, -74, -78, -81, -83, and -86 dBm  | Only one tower listed: the app is not in PolicyEngine's scope |
 | E2a, sample app GNSS tab | Stays at "Waiting for GNSS measurements" (suppressed by design) | A satellite-derived position appears |
 | E3 | GPS tab shows spoofed coordinates; Wi-Fi and cellular show real values | GPS tab shows real coordinates |
 
