@@ -8,8 +8,6 @@ Permanent archive (Available badge): https://doi.org/10.5281/zenodo.23174949. Th
 
 ## Reviewer quick start
 
-Start here. Each item points to the detailed document.
-
 ### Supported platforms and software versions
 
 | Item | Version |
@@ -130,7 +128,6 @@ The paper's primary results were obtained on a Google Pixel 8 running Android 16
 - **Nondeterminism.** Speed varies randomly and the device pauses at random waypoints (a 15% chance at each), so exact values and timing differ between runs. The route itself is fixed.
 - **Unavailable data and reduced-scale alternative.** The real-world stalkerware apps from the Coalition Against Stalkerware Threat List and the adversarial stalkerware prototype are not distributed (see docs/RELEASE_STATEMENT.md). The prototype is available to evaluators on request through HotCRP. E1 and E2 run on SampleLocationStalk, or on any APK you supply.
 - **Essential and optional resources.** E2a (claim C2 and the Functional badge) needs an x86_64 host with hardware virtualization. A physical rooted device (E2b) and a Geolocation API key are optional.
-- **Sample app tabs.** On the emulator, the Cellular tab lists the seven spoofed towers with their signal strengths but does not show a position in Beijing. The Connected AP line on the Wi-Fi tab may show the emulator's own network (`AndroidWifi`), so judge by the scan list below it.
 
 Other limitations are in docs/KNOWN_LIMITATIONS.md.
 
