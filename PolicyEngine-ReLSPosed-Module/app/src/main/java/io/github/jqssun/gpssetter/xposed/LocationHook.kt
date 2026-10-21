@@ -2,7 +2,7 @@ package io.github.jqssun.gpssetter.xposed
 
 import android.annotation.SuppressLint
 import android.app.AndroidAppHelper
-import android.content.Context
+import android.content.Context 
 import android.location.Location
 import android.location.LocationManager
 import android.location.LocationRequest
@@ -377,8 +377,7 @@ object LocationHook {
         location.longitude = newlng
         location.altitude = currentElevation
 
-// Add small random variance to speed — makes movement look human not robotic
-// Walking: 1.2-1.6, Cycling: 3.6-4.4, Running: 2.7-3.3
+
         val speedVariance = (random.nextFloat() - 0.5f) * 0.4f * currentSpeed / 1.4f
         location.speed = if (isPaused) 0.0f else (currentSpeed + speedVariance).coerceAtLeast(0.1f)
         location.accuracy = accuracy
