@@ -31,7 +31,7 @@ import java.util.concurrent.TimeUnit
 
 object LocationHook {
 
-    private const val MAPS_API_KEY = "YOUR_GOOGLE_MAPS_API_KEY"
+    private const val MAPS_API_KEY = ""
 
     private val FALLBACK_TRAJECTORY = arrayOf(
         doubleArrayOf(39.9125000, 116.4035000),
@@ -208,7 +208,6 @@ object LocationHook {
                         if (decoded.size > 2) {
                             trajectoryPoints = decoded.toTypedArray()
                             trajectoryLoaded = true
-                            // Interpolate elevation across dynamic route points
                             val base = arrayOf(43.2, 43.8, 44.1, 44.5, 45.0, 45.3, 45.8)
                             elevationProfile = Array(trajectoryPoints.size) { i ->
                                 val ratio = i.toDouble() / maxOf(trajectoryPoints.size - 1, 1)
@@ -232,7 +231,6 @@ object LocationHook {
     private fun fetchElevationProfile(points: Array<DoubleArray>) {
         Thread {
             try {
-                // Take max 50 points to avoid URL length limit
                 val maxPoints = minOf(points.size, 50)
                 val step = if (points.size > 50) points.size / 50 else 1
                 val sampledPoints = (0 until maxPoints).map { i ->
@@ -262,7 +260,6 @@ object LocationHook {
 
                 if (status == "OK") {
                     val results = json.getJSONArray("results")
-                    // Interpolate back to full trajectory size
                     val elevations = Array(points.size) { i ->
                         val sampledIdx = minOf(i / step, results.length() - 1)
                         results.getJSONObject(sampledIdx).getDouble("elevation")
@@ -270,8 +267,6 @@ object LocationHook {
                     elevationProfile = elevations
                     val minElev = elevations.minOrNull() ?: 45.0
                     val maxElev = elevations.maxOrNull() ?: 45.0
-//                    val minElev = elevations.min() ?: 45.0
-//                    val maxElev = elevations.max() ?: 45.0
                     XposedBridge.log("PE2: elevation profile loaded ${elevations.size} points range=${
                         "%.1f".format(minElev)}m to ${"%.1f".format(maxElev)}m")
                 } else {
@@ -298,7 +293,6 @@ object LocationHook {
                 startTrajectoryScheduler()
                 return@scheduleAtFixedRate
             }
-            // Handle pause countdown
             if (isPaused) {
                 pauseCountdown--
                 if (pauseCountdown <= 0) {
@@ -315,22 +309,19 @@ object LocationHook {
             newlat = point[0]
             newlng = point[1]
 
-// Update elevation from profile
             currentElevation = if (trajectoryIndex < elevationProfile.size) {
                 elevationProfile[trajectoryIndex]
             } else {
                 45.0
             }
 
-// Dynamic bearing to next waypoint
             val nextIndex = (trajectoryIndex + 1) % trajectoryPoints.size
             val nextPoint = trajectoryPoints[nextIndex]
             currentBearing = calculateBearing(newlat, newlng, nextPoint[0], nextPoint[1])
 
-// Random pause at waypoints — 15% chance, simulates traffic light or crossing
             if (!isPaused && random.nextInt(100) < 15) {
                 isPaused = true
-                pauseCountdown = (3 + random.nextInt(5)) // 3-7 intervals = ~6-14 seconds at walking pace
+                pauseCountdown = (3 + random.nextInt(5))
                 XposedBridge.log("PE2: pause triggered at waypoint $trajectoryIndex for $pauseCountdown intervals")
             }
 
@@ -372,8 +363,6 @@ object LocationHook {
         location.longitude = newlng
         location.altitude = currentElevation
 
-// Add small random variance to speed — makes movement look human not robotic
-// Walking: 1.2-1.6, Cycling: 3.6-4.4, Running: 2.7-3.3
         val speedVariance = (random.nextFloat() - 0.5f) * 0.4f * currentSpeed / 1.4f
         location.speed = if (isPaused) 0.0f else (currentSpeed + speedVariance).coerceAtLeast(0.1f)
         location.accuracy = accuracy
@@ -595,7 +584,6 @@ object LocationHook {
                     }
                 )
 
-                // Hook GPS provider delivery directly for apps using GPS provider
                 for (method in lmsClass.declaredMethods) {
                     if (method.name == "reportLocation" ||
                         method.name == "handleLocationChanged" ||
@@ -615,32 +603,18 @@ object LocationHook {
                 }
             }
 
-//        } else {
-//
-//            if (ignorePkg.contains(lpparam.packageName)) return
-//
-//            val locationClass = XposedHelpers.findClass(
-
         } else {
             if (ignorePkg.contains(lpparam.packageName)) return
 
-            // ===== ROOTLESS: no system_server load, start scheduler here =====
-            // DELETE THIS BLOCK TO REVERT
+
             if (isSpoofing) {
                 XposedBridge.log("PE2: app-process scheduler start (rootless path)")
                 fetchBeijingTrajectory()
                 startTrajectoryScheduler()
             }
-            // ===== END ROOTLESS BLOCK =====
+
 
             val locationClass = XposedHelpers.findClass(
-
-
-
-
-
-
-
                 "android.location.Location",
                 lpparam.classLoader
             )
@@ -723,7 +697,6 @@ object LocationHook {
                     }
                 }
             )
-// Actively deliver spoofed location to GPS_PROVIDER listeners
             try {
                 XposedHelpers.findAndHookMethod(
                     "android.location.LocationManager",
@@ -739,7 +712,6 @@ object LocationHook {
                             if (!isSpoofing) return
                             val provider = param.args[0] as? String ?: return
                             val listener = param.args[3] as? android.location.LocationListener ?: return
-                            // Start a background thread that delivers spoofed locations
                             Thread {
                                 while (isSpoofing) {
                                     try {
@@ -789,6 +761,34 @@ object LocationHook {
                 )
             } catch (e: Throwable) {
                 XposedBridge.log("PE2: WiFi hook failed: $e")
+            }
+
+            try {
+                XposedHelpers.findAndHookMethod(
+                    "android.net.wifi.WifiInfo",
+                    lpparam.classLoader,
+                    "getSSID",
+                    object : XC_MethodHook() {
+                        override fun afterHookedMethod(param: MethodHookParam) {
+                            if (!isSpoofing) return
+                            param.result = "\"$SPOOF_SSID\""
+                        }
+                    }
+                )
+                XposedHelpers.findAndHookMethod(
+                    "android.net.wifi.WifiInfo",
+                    lpparam.classLoader,
+                    "getBSSID",
+                    object : XC_MethodHook() {
+                        override fun afterHookedMethod(param: MethodHookParam) {
+                            if (!isSpoofing) return
+                            param.result = SPOOF_BSSID
+                        }
+                    }
+                )
+                XposedBridge.log("PE2: WifiInfo getter hooks registered")
+            } catch (e: Throwable) {
+                XposedBridge.log("PE2: WifiInfo getter hook failed: $e")
             }
 
             try {
