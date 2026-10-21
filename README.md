@@ -76,7 +76,7 @@ The E2a rows below use the SampleLocationStalk as the target app.
 | E2a, sample app Wi-Fi tab | Scan list of SWATCH-2.4G, xda2.4G, BLA_Store-2.4G, AP-8818, dftc-s | Only the emulator's own network (`AndroidWifi`): the app is not in PolicyEngine's scope |
 | E2a, sample app Cellular tab | Seven towers listed with signal strengths of -65, -71, -74, -78, -81, -83, and -86 dBm  | Only one tower listed: the app is not in PolicyEngine's scope |
 | E2a, sample app GNSS tab | Stays at "Waiting for GNSS measurements" (suppressed by design) | A satellite-derived position appears |
-| E3 | GPS, Wi-Fi, and cellular tabs show spoofed values matching E2a; GNSS tab shows satellite measurements (not suppressed) | GPS tab shows real coordinates |
+| E3 | GPS, Wi-Fi, and cellular tabs show spoofed values matching E2a | GPS tab shows real coordinates |
 
 ## Repository layout
 
@@ -103,7 +103,7 @@ The E2a rows below use the SampleLocationStalk as the target app.
 | :---- | :---- | :---- | :---- | :---- |
 | C1 | The artifact can dynamically analyze stalkerware apps, returning which geolocation channels and underlying API calls each app uses. | Analysis-Scripts/ | Section 3.2 | E1 |
 | C2 | PolicyEngine, running rooted, feeds synthetic data across GPS, Wi-Fi, and cellular while suppressing GNSS data to a target app. | PolicyEngine-ReLSPosed-Module/, Rooted-Emulator-AVD/ | Figures 2 and 3, Table 5, Sections 6 to 8 | E2 (via E2a or E2b) |
-| C3 | PolicyEngine, running rootless via LSPatch, spoofs GPS, Wi-Fi, and cellular location data. Raw GNSS suppression is not supported in this configuration. |
+| C3 | PolicyEngine, running rootless via LSPatch, spoofs GPS, Wi-Fi, and cellular location data. Raw GNSS suppression is not supported in this configuration. | Rootless-PolicyEngine/ | Section 9.1, Table 5, Appendix F | E3 |
 
 Scripts and data behind each claim: C1 uses `Analysis-Scripts/artifact_automated_script_testing.ps1` and writes `pe_results.txt`. C2 uses the AVD (docs/SETUP.md) with SampleLocationStalk/ as the target app, checked through the app's tabs and `adb logcat`. C3 uses the patched app described in `Rootless-PolicyEngine/README.md`.
 
