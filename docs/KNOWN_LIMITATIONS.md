@@ -14,7 +14,7 @@ WiGLE and OpenCelliD access-point and cell-tower data are hardcoded in the codeb
 
 ## Rootless configuration
 
-The paper (Section 9.1) reports that the LSPatch build evaluated crashes on Android 16 (API 36), caused by a conflict between LSPatch's hooking mechanism and ART's ProfileSaver on that Android version. This artifact was verified working with LSPatch v1.2 (487) and Shizuku v13.5, which do not exhibit that crash on Android 16; this is an improvement made after the paper's evaluation and is not itself documented in the paper. As reported in Table 7 (Appendix F), GPS spoofing is supported in the rootless configuration while system-server hooks are not, so Wi-Fi and cellular spoofing remain unavailable regardless of Android version, since they require system-server instrumentation that application-level patching cannot provide. This matches the claim made in C3.
+The paper (Section 9.1) reports that the LSPatch build evaluated crashes on Android 16 (API 36), caused by a conflict between LSPatch's hooking mechanism and ART's ProfileSaver on that Android version. This artifact was verified working with LSPatch v1.2 (487) and Shizuku v13.5, which do not exhibit that crash on Android 16. As reported in Table 5 (Appendix F), GPS, Wi-Fi, and cellular spoofing are all supported in the rootless configuration. Only raw GNSS suppression is unavailable, since it requires system-server instrumentation that application-level patching cannot provide. This matches the claim made in C3.
 
 ## Disk image hosting
 
