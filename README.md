@@ -4,7 +4,7 @@ This repository contains the artifact for the ACSAC 2026 submission. PolicyEngin
 
 Badges requested: Available, Functional, Reproduced.
 
-Permanent archive (Available badge): https://doi.org/10.5281/zenodo.23174949. The record holds a snapshot of this repository and the rooted AVD disk image.
+Permanent archive (Available badge): https://doi.org/10.5281/zenodo.23174948 The record holds a snapshot of this repository and the rooted AVD disk image.
 
 ## Reviewer quick start
 
