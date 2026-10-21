@@ -8,11 +8,7 @@ import android.database.MatrixCursor
 import android.net.Uri
 import io.github.jqssun.gpssetter.BuildConfig
 
-/**
- * Exposes PolicyEngine2 settings to modules running inside other app
- * sandboxes (rootless LSPatch deployment), where XSharedPreferences
- * cannot cross the app-data boundary.
- */
+
 class ConfigProvider : ContentProvider() {
 
     override fun onCreate(): Boolean = true
